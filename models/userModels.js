@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-caches
+
 const userSchema = new mongoose.Schema(
     {
     name: {
@@ -21,13 +21,10 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     address: {
-      type: {},
+      type: string,
       required: true,
     },
-    answer: {
-      type: String,
-      required: true,
-    },
+    
     role: {
       type: Number,
       default: 0,
