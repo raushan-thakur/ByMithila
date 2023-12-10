@@ -1,5 +1,5 @@
-import userModel from "../models/userModel.js";
-import { hashPassword } from "../helpers/authHelper.js";
+import userModel from "./../models/userModels.js";
+import { hashPassword } from "./../helpers/authHelper.js";
 
 
 export const registerController = async (req, res) => {
@@ -29,7 +29,7 @@ export const registerController = async (req, res) => {
         //exisiting user
         if (exisitingUser) {
           return res.status(200).send({
-            success: false,
+            success: true,
             message: "Already Register please login",
           });
         }
@@ -48,14 +48,14 @@ export const registerController = async (req, res) => {
         res.status(201).send({
           success: true,
           message: "User Register Successfully",
-          user,
+          user
         });
       } catch (error) {
         console.log(error);
         res.status(500).send({
           success: false,
           message: "Errro in Registeration",
-          error,
+          error
         });
       }
 };

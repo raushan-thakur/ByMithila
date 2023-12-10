@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-caches
 const userSchema = new mongoose.Schema(
     {
     name: {
