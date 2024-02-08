@@ -13,14 +13,14 @@ export const createCategoryController = async(req,res) =>{
                 message: "category already exist"
             })
         }
-        else{
-            const category = await new categoryModels({name, slug:slugify(name)}).save;
+        
+            const category = await new categoryModels({name, slug:slugify(name)}).save();
             res.status(201).send({
                 success: true,
                 message: 'new category created',
                 category
-            })
-        }
+            });
+        
     } catch (error) {
         console.log(error);
         return res.status(500).send({
