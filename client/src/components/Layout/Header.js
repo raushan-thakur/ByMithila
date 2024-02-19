@@ -1,11 +1,11 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { useAuth } from "../../context/auth";
-
+import { toast } from "react-toastify";
 const Header = () => {
   const [auth, setAuth] = useAuth();
-  const handleLogout = () => {
-    setAuth({
+  const handleLogout = async () => {
+    await setAuth({
       ...auth,
       user: null,
       token: "",
