@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Layout from '../components/Layout/Layout';
-import axios from 'axios';
-import {Checkbox, Radio} from 'antd';
-import { Prices } from '../components/Prices';
+import React, { useState, useEffect } from "react";
+import Layout from "../components/Layout/Layout";
+import axios from "axios";
+import { Checkbox, Radio } from "antd";
+import { Prices } from "../components/Prices";
+import { useNavigate } from "react-router-dom";
 const HomePage = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
@@ -41,24 +43,24 @@ const HomePage = () => {
       console.log(error);
     }
   };
-  useEffect(()=>{
-    if(page===1) return;
-    loadMore()
-  },[page]);
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page]);
   // load more
-  const loadMore = async() =>{
+  const loadMore = async () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
       );
       setLoading(false);
-      setProducts([...products,...data?.products]);
+      setProducts([...products, ...data?.products]);
     } catch (error) {
       console.log(error);
       setLoading(false);
     }
-  }
+  };
 
   // filter
   const handleFilter = (value, id) => {
@@ -155,7 +157,12 @@ const HomePage = () => {
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">{p.description.substring(0, 30)}</p>
                   <p className="card-text">₹ {p.price}</p>
-                  <button className="btn btn-primary ms-1">See Details</button>
+                  <button
+                    className="btn btn-primary ms-1"
+                    onClick={() => navigate(`/product/${p.slug}`)}
+                  >
+                    See Details
+                  </button>
                   <button className="btn btn-secondary ms-1">
                     Add to cart
                   </button>
@@ -163,13 +170,16 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-          <div className='m-2 p-3'>
-            {products && products.length<total && (
-              <button className='btn btn-warning' onClick={(e) =>{
-                e.preventDefault();
-                setPage(page+1);
-              }}>
-                  {loading ? "Loading.." : "Loadmore"}
+          <div className="m-2 p-3">
+            {products && products.length < total && (
+              <button
+                className="btn btn-warning"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage(page + 1);
+                }}
+              >
+                {loading ? "Loading.." : "Loadmore"}
               </button>
             )}
           </div>
@@ -177,6 +187,6 @@ const HomePage = () => {
       </div>
     </Layout>
   );
-}
+};
 
-export default HomePage
+export default HomePage;
