@@ -1,10 +1,11 @@
 import axios from 'axios';
 import Layout from './../components/Layout/Layout';
 import React,{useEffect, useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 const ProductDetails = () => {
   //initial details
   const params = useParams();
+  const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
   useEffect(() => {
