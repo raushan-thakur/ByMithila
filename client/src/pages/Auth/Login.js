@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../../styles/AuthStyles.css";
 import { useAuth } from "../../context/auth";
 import axios from "axios";
@@ -10,7 +10,9 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [auth, setAuth] = useAuth();
+
   const navigate = useNavigate();
+  const location = useLocation();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -18,7 +20,7 @@ const Login = () => {
         `${process.env.REACT_APP_API}/api/v1/auth/login`,
         { email, password }
       );
-      if (res.data.success) {
+      if (res && res.data.success) {
         toast.success(res.data.message);
         setAuth({
           ...auth,

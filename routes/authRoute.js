@@ -4,7 +4,7 @@ import {
   loginController,
   testController,
   forgotPasswordController,
-  // updateProfileController,
+   updateProfileController,
   // getOrdersController,
   // getAllOrdersController,
   // orderStatusController,
@@ -19,7 +19,7 @@ const router = express.Router();
 router.post("/register", registerController);
 
 // //LOGIN || POST
-// router.post("/login", loginController);
+router.post("/login", loginController);
 
 // //Forgot Password || POST
 router.post("/forgot-password", forgotPasswordController);
@@ -36,8 +36,8 @@ router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
   res.status(200).send({ ok: true });
 });
 
-// //update profile
-// router.put("/profile", requireSignIn, updateProfileController);
+//update profile
+router.put("/profile", requireSignIn, updateProfileController);
 
 // //orders
 // router.get("/orders", requireSignIn, getOrdersController);
