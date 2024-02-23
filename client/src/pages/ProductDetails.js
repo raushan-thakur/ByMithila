@@ -2,6 +2,7 @@ import axios from 'axios';
 import Layout from './../components/Layout/Layout';
 import React,{useEffect, useState} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import "../styles/ProductDetailsStyles.css";
 const ProductDetails = () => {
   //initial details
   const params = useParams();
@@ -29,7 +30,7 @@ const ProductDetails = () => {
       );
       setRelatedProducts(data?.products);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
   return (

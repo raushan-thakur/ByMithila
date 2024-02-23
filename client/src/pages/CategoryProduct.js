@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
+import "../styles/CategoryProductStyles.css";
 import axios from "axios";
 const CategoryProduct = () => {
   const params = useParams();
@@ -19,7 +20,7 @@ const CategoryProduct = () => {
       setProducts(data?.products);
       setCategory(data?.category);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 

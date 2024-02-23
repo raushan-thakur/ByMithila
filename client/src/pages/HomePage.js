@@ -6,6 +6,7 @@ import { Prices } from "../components/Prices";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
 import { toast } from "react-toastify";
+import "../styles/Homepage.css";
 const HomePage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
@@ -26,7 +27,7 @@ const HomePage = () => {
         setCategories(data.category);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 
@@ -43,7 +44,7 @@ const HomePage = () => {
       );
       setTotal(data?.total);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
   useEffect(() => {
@@ -60,7 +61,7 @@ const HomePage = () => {
       setLoading(false);
       setProducts([...products, ...data?.products]);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       setLoading(false);
     }
   };
@@ -86,7 +87,7 @@ const HomePage = () => {
       setProducts(data.products);
     } catch (error) {
       setLoading(false);
-      console.log(error);
+      //console.log(error);
     }
   };
   useEffect(() => {
@@ -106,7 +107,7 @@ const HomePage = () => {
       );
       setProducts(data?.products);
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
 

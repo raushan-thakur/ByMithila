@@ -34,7 +34,7 @@ const UpdateProduct = () => {
            setCategory(data.product.category._id);
           
     } catch (error) {
-        console.log(error);
+        //console.log(error);
     }
   };
   
@@ -51,7 +51,7 @@ const UpdateProduct = () => {
         setCategories(data?.category);
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error("Something went wrong in category");
     }
   };
@@ -81,7 +81,7 @@ const UpdateProduct = () => {
         navigate("/dashboard/admin/products");
       }
     } catch (error) {
-      console.log(error);
+      //console.log(error);
       toast.error("something went wrong");
     }
   };
@@ -99,7 +99,7 @@ const UpdateProduct = () => {
             return;
         }
      } catch (error) {
-        console.log(error);
+        //console.log(error);
         toast.error(error);
      }
   }

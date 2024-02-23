@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import "../styles/CartStyles.css";
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
@@ -25,7 +26,7 @@ const CartPage = () => {
         currency: "INR",
       });
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
   //detele item
@@ -37,7 +38,7 @@ const CartPage = () => {
       setCart(myCart);
       localStorage.setItem("cart", JSON.stringify(myCart));
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
   // get payment gateway token
@@ -48,7 +49,7 @@ const CartPage = () => {
       );
       setClientToken(data?.clientToken);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setLoading(false);
     }
   };
@@ -72,7 +73,7 @@ const CartPage = () => {
       navigate('/dashboard/user/order');
       toast.success('payment completed successfully')
     } catch (error) {
-      console.log(error);
+      //console.log(error);
     }
   };
   return (
