@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext, createContext } from "react";
-import { token } from "morgan";
+
 const SearchContext = createContext();
 
 const SearchProvider = ({ children }) => {
@@ -7,14 +7,14 @@ const SearchProvider = ({ children }) => {
     keyword: "",
     results: [],
   });
+
   return (
     <SearchContext.Provider value={[auth, setAuth]}>
       {children}
     </SearchContext.Provider>
-  );
-};
+    );
+  };
 
-// custom hook
 const useSearch = () => useContext(SearchContext);
 
 export { useSearch, SearchProvider };
