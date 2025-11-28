@@ -15,6 +15,11 @@ font-family: 'Poppins', sans-serif; */
   box-shadow: 0 8px 6px -6px gray;
   --webkit-box-shadow: 0 8px 6px -6px gray;
   border-bottom: solid gray !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
 }
 .nav-link{
   font-weight: 300 !important;

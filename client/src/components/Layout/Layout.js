@@ -13,7 +13,7 @@ const Layout = ({children,title, description, keywords, author }) => {
         <title>{title}</title>
         </Helmet>
         <Header/>
-        <main style = {{minHeight:"69vh"}}>
+        <main style = {{minHeight:"69vh", paddingTop:"60px"}}>
         {children}
         </main>
         <Footer/>
@@ -24,6 +24,6 @@ Layout.defaultProps = {
   title: "Ecommerce app - shop now",
   description: "mern stack project",
   keywords: "mern,react,node,mongodb",
-  author: "Rohan",
+  author: "Raushan",
 };
 export default Layout
