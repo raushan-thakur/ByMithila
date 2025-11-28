@@ -4,6 +4,8 @@ import Layout from "../../components/Layout/Layout";
 import { useNavigate } from "react-router-dom";
 import "../../styles/AuthStyles.css"
 import axios from 'axios';
+import { toast } from "react-toastify";
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
