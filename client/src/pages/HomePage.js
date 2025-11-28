@@ -176,35 +176,40 @@ const ShimmerCard = () => {
           {!loading && (
             <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }}>
-                <img
-                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">{p.description.substring(0, 30)}</p>
-                  <p className="card-text">₹ {p.price}</p>
-                  <button
-                    className="btn btn-primary ms-1"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    See Details
-                  </button>
-                  <button
-                    className="btn btn-secondary ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart,p])
-                      );
-                      // toast.success("Item added to cart");
-                    }}
-                  >
-                    Add to cart
-                  </button>
+              <div className="product-card m-2" key={p._id}>
+                <div className="product-img-wrapper">
+                  <img
+                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                    alt={p.name}
+                    className="product-img"
+                  />
+                </div>
+            
+                <div className="card-body product-body">
+                  <h5 className="card-title product-title">{p.name}</h5>
+                  <p className="card-text product-desc">
+                    {p.description.substring(0, 50)}...
+                  </p>
+            
+                  <p className="price-tag">₹ {p.price}</p>
+            
+                  <div className="card-buttons">
+                    <button
+                      className="btn btn-primary"
+                      onClick={() => navigate(`/product/${p.slug}`)}
+                    >
+                      Details
+                    </button>
+                    <button
+                      className="btn btn-secondary"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem("cart", JSON.stringify([...cart, p]));
+                      }}
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
