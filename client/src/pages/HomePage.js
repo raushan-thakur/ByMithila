@@ -17,6 +17,20 @@ const HomePage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+
+const ShimmerCard = () => {
+    return (
+      <div
+        className="card m-2 shimmer-card"
+        style={{ width: "18rem", height: "350px" }}
+      >
+        <div className="shimmer-img"></div>
+        <div className="shimmer-line short"></div>
+        <div className="shimmer-line"></div>
+        <div className="shimmer-line"></div>
+      </div>
+    );
+  };
   // get all categories
   const getAllCategory = async () => {
     try {
@@ -101,6 +115,7 @@ const HomePage = () => {
   // get filtered products
   const filteredProduct = async () => {
     try {
+      setLoading(true);
       const { data } = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/product/product-filters`,
         { checked, radio }
@@ -149,7 +164,17 @@ const HomePage = () => {
 
         <div className="col-md-9">
           <h1 className="text-center">All Products</h1>
-          <div className="d-flex flex-wrap">
+          {loading && (
+            <div className="d-flex flex-wrap">
+              {Array(6)
+                .fill(0)
+                .map((_, i) => (
+                  <ShimmerCard key={i} />
+                ))}
+            </div>
+          )}
+          {!loading && (
+            <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card m-2" style={{ width: "18rem" }}>
                 <img
@@ -184,6 +209,7 @@ const HomePage = () => {
               </div>
             ))}
           </div>
+          )}
           <div className="m-2 p-3">
             {products && products.length < total && (
               <button
