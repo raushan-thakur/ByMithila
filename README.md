@@ -1,4 +1,1 @@
-crafted by - Rohan Rastogi and Raushan Thakur
-<br>
-https://by-mithila-frontend.vercel.app/
-
+Live Link : https://by-mithila.vercel.app/
