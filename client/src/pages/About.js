@@ -3,25 +3,38 @@ import Layout from "./../components/Layout/Layout";
 
 const About = () => {
   return (
-    <Layout title={"About us - Ecommer app"}>
-      <div className="row contactus ">
-        <div className="col-md-6 ">
+    <Layout title={"About - Raushan Thakur"}>
+      <div className="row contactus about-page">
+        
+        <div className="col-md-6">
           <img
             src="/images/about.jpeg"
-            alt="contactus"
-            style={{ width: "100%" }}
+            alt="about"
+            style={{ width: "100%", borderRadius: "8px" }}
           />
         </div>
-        <div className="col-md-4">
-          <p className="text-justify mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
-            perferendis eius temporibus dicta blanditiis doloremque explicabo
-            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
-            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
-            commodi illum quidem neque tempora nam.
+
+        <div className="col-md-5 about-text">
+          <h2 className="fw-bold mb-3">About Me</h2>
+
+          <p>
+            I’m <strong>Raushan Thakur</strong>, a Software Engineer with 
+            experience in building scalable web applications. I completed my B.Tech from 
+            <strong> Delhi Technological University</strong>.
+          </p>
+
+          <p>
+            I enjoy developing clean, scalable applications and improving 
+            performance through good architecture and reusable components.
+          </p>
+
+          <h5 className="mt-3">Contact</h5>
+          <p>
+            📧 raushandtu@gmail.com <br />
+            📞 +91 95118 74042
           </p>
         </div>
+
       </div>
     </Layout>
   );
